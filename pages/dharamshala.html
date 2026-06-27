@@ -3,33 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dharamshala Taxi Services | Local Sightseeing, Airport Pickup | RJ Taxi</title>
-  <meta name="description" content="Book taxi in Dharamshala & McLeodganj for local sightseeing, airport pickup from Gaggal, hotel transfers, Triund, Bhagsunag & more. Call +91-9317082083.">
-  <meta name="keywords" content="dharamshala taxi service, mcleodganj taxi, dharamshala airport pickup, triund taxi, dalai lama temple taxi">
+  <title>Dharamshala Taxi Service | McLeodganj Tours & Transfers | RJ Taxi</title>
+  <meta name="description" content="Book premium taxi in Dharamshala & McLeodganj. Airport pickup, sightseeing tours, Triund drop, hotel transfers. Local experts. Call +91-9317082083.">
+  <meta name="keywords" content="dharamshala taxi service, mcleodganj taxi, dharamshala airport pickup, gaggal airport taxi, triund taxi, dalai lama temple tour, mcleodganj sightseeing">
   <link rel="canonical" href="https://rjtaxidharamshala.com/pages/dharamshala.html">
-  <meta property="og:title" content="Dharamshala Taxi Services | RJ Taxi Services">
-  <meta property="og:description" content="Professional taxi & sightseeing services in Dharamshala and McLeodganj. Airport pickup, hotel transfers, and custom tours.">
+  <meta property="og:title" content="Dharamshala Taxi Service | RJ Taxi Services">
+  <meta property="og:description" content="Reliable, professional taxi services in Dharamshala & McLeodganj. Book airport pickup, local sightseeing and custom tours.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=1200&q=80">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/destinations.css">
+  <!-- FAQ Schema -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"Dharamshala Taxi Service","provider":{"@type":"LocalBusiness","name":"RJ Taxi Services Dharamshala","telephone":"+91-9317082083"},"areaServed":{"@type":"City","name":"Dharamshala"},"serviceType":"Taxi Service"}
-  </script>
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How do I book a taxi in Dharamshala?","acceptedAnswer":{"@type":"Answer","text":"Call or WhatsApp +91-9317082083. We confirm bookings within minutes and send full driver details before your travel."}},
+    {"@type":"Question","name":"Is airport pickup available from Gaggal Airport?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide 24/7 airport pickup and drop from Gaggal (Kangra) Airport to Dharamshala, McLeodganj, and surrounding areas."}},
+    {"@type":"Question","name":"What is the best time to visit Dharamshala?","acceptedAnswer":{"@type":"Answer","text":"March to June and September to November offer the best weather. Monsoon (July–August) is lush but roads can be slippery. Winters (December–February) are cold with occasional snowfall."}},
+    {"@type":"Question","name":"Can I do a day trip to Dalhousie or Dharamshala from Delhi?","acceptedAnswer":{"@type":"Answer","text":"Dharamshala is about 8 hours from Delhi. We recommend an overnight trip rather than a day trip. We can arrange early-morning departures for your convenience."}}
+  ]}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"TouristAttraction","name":"Dharamshala — McLeodganj","description":"Home of the Dalai Lama and Tibetan government in exile, set against the Dhauladhar mountain range in Himachal Pradesh.","touristType":["Cultural tourists","Spiritual travellers","Adventure seekers"],"address":{"@type":"PostalAddress","addressLocality":"Dharamshala","addressRegion":"Himachal Pradesh","addressCountry":"IN"}}</script>
 </head>
 <body>
+
+<!-- Page Loader -->
 <div id="page-loader"><div class="loader-logo">RJ <span>Taxi</span></div><div class="loader-bar"></div></div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <button id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="Gallery image">
+</div>
+
+<!-- Enquiry Modal -->
+<div id="modal-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:8000;opacity:0;visibility:hidden;transition:all .3s ease" aria-hidden="true"></div>
+<div id="enquiry-modal" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.95);z-index:8001;background:#fff;border-radius:20px;padding:40px;width:min(540px,95vw);opacity:0;visibility:hidden;transition:all .3s ease;box-shadow:0 24px 64px rgba(0,0,0,.25)">
+  <button id="modal-close" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#4A5568" aria-label="Close modal">&times;</button>
+  <div class="section-eyebrow" style="margin-bottom:8px">Free Quote</div>
+  <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:20px">Get a Customised Quote</h3>
+  <form id="modal-enquiry-form">
+    <div class="form-group"><label class="form-label" for="modal-dest">Destination / Route</label><input class="form-control" id="modal-dest" name="dest" placeholder="e.g. Dharamshala → Delhi" required></div>
+    <div class="form-row"><div class="form-group"><label class="form-label" for="modal-name">Your Name</label><input class="form-control" id="modal-name" name="name" placeholder="Full name" required></div><div class="form-group"><label class="form-label" for="modal-phone">Phone Number</label><input class="form-control" id="modal-phone" name="phone" type="tel" placeholder="+91-XXXXXXXXXX" required></div></div>
+    <div class="form-row"><div class="form-group"><label class="form-label" for="modal-travel">Travel Date</label><input class="form-control" id="modal-travel" name="travel" type="date"></div><div class="form-group"><label class="form-label" for="modal-pax">Passengers</label><select class="form-control" id="modal-pax" name="pax"><option>1–3 passengers</option><option>4–6 passengers</option><option>7–12 passengers</option><option>13+ passengers</option></select></div></div>
+    <button type="submit" class="btn-gold w-100" style="width:100%;justify-content:center;margin-top:4px"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+  </form>
+</div>
+<script>
+  (function(){
+    var modal=document.getElementById('enquiry-modal'),overlay=document.getElementById('modal-overlay');
+    document.querySelectorAll('.open-enquiry').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();modal.style.opacity='1';modal.style.visibility='visible';modal.style.transform='translate(-50%,-50%) scale(1)';overlay.style.opacity='1';overlay.style.visibility='visible';document.body.style.overflow='hidden';});});
+    function closeM(){modal.style.opacity='0';modal.style.visibility='hidden';modal.style.transform='translate(-50%,-50%) scale(.95)';overlay.style.opacity='0';overlay.style.visibility='hidden';document.body.style.overflow='';}
+    document.getElementById('modal-close').addEventListener('click',closeM);
+    overlay.addEventListener('click',closeM);
+  })();
+</script>
+
+<!-- Floating Buttons -->
 <a href="https://wa.me/919317082083?text=Hello%20RJ%20Taxi%2C%20I%20need%20a%20taxi%20in%20Dharamshala." class="float-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <a href="tel:+919317082083" class="float-call" aria-label="Call us"><i class="fas fa-phone-alt"></i></a>
 <button class="back-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
+<!-- Navigation -->
 <nav id="navbar" aria-label="Main navigation">
   <div class="navbar-inner">
-    <a href="../index.html" class="nav-logo"><div class="nav-logo-icon"><i class="fas fa-taxi"></i></div><div class="nav-logo-text"><span class="nav-logo-name">RJ Taxi Services</span><span class="nav-logo-sub">Dharamshala & McLeodganj</span></div></a>
-    <ul class="nav-menu">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fas fa-taxi"></i></div>
+      <div class="nav-logo-text"><span class="nav-logo-name">RJ Taxi Services</span><span class="nav-logo-sub">Dharamshala</span></div>
+    </a>
+    <ul class="nav-menu" role="menubar">
       <li><a href="../index.html" class="nav-link">Home</a></li>
-      <li class="nav-dropdown"><a href="#" class="nav-link active">Destinations <i class="fas fa-chevron-down" style="font-size:.65rem;margin-left:4px"></i></a>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-link active">Destinations <i class="fas fa-chevron-down" style="font-size:.65rem;margin-left:4px"></i></a>
         <div class="nav-dropdown-menu">
           <a href="dharamshala.html"><i class="fas fa-mountain"></i> Dharamshala</a>
           <a href="shimla.html"><i class="fas fa-snowflake"></i> Shimla</a>
@@ -42,165 +89,591 @@
       <li><a href="group-transport.html" class="nav-link">Group Transport</a></li>
       <li><a href="gallery.html" class="nav-link">Gallery</a></li>
       <li><a href="blog.html" class="nav-link">Blog</a></li>
-      <li><a href="tel:+919317082083" class="nav-link nav-cta"><i class="fas fa-phone-alt"></i> Book Now</a></li>
+      <li><a href="#" class="nav-link nav-cta open-enquiry"><i class="fas fa-calendar-check"></i> Get Free Quote</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
-<!-- Page Hero -->
-<header class="page-hero" aria-label="Dharamshala taxi services">
-  <div class="page-hero-content">
-    <div class="section-eyebrow" style="justify-content:center;color:rgba(255,255,255,.6)">Himachal Pradesh</div>
-    <h1>Dharamshala Taxi Services</h1>
-    <p>Local sightseeing, airport transfers & custom tours in McLeodganj & Dharamshala</p>
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a>
-      <span>/</span>
-      <span class="current">Dharamshala Taxi</span>
-    </nav>
+<!-- ═══ HERO ═══ -->
+<section class="dest-hero" aria-label="Dharamshala hero">
+  <div class="dest-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=1920&q=85')"></div>
+  <div class="dest-hero-overlay"></div>
+  <div class="dest-hero-content">
+    <div class="container">
+      <nav aria-label="Breadcrumb" style="margin-bottom:16px">
+        <span style="font-size:.78rem;color:rgba(255,255,255,.5)">
+          <a href="../index.html" style="color:rgba(255,255,255,.6)">Home</a>
+          <span style="margin:0 8px">/</span>
+          <a href="#" style="color:var(--gold-light)">Dharamshala Taxi</a>
+        </span>
+      </nav>
+      <div class="dest-hero-meta">
+        <span class="dest-hero-tag"><i class="fas fa-map-marker-alt"></i> Himachal Pradesh</span>
+        <span class="dest-hero-tag"><i class="fas fa-mountain"></i> 1,457m Altitude</span>
+        <div class="dest-hero-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>4.8 Rated Service</span></div>
+      </div>
+      <h1>Dharamshala & McLeodganj<br><em>Taxi Service</em></h1>
+      <p class="dest-hero-sub">Airport transfers, local sightseeing, Triund base drops, hotel pickups and custom multi-day tours — all with experienced local drivers who know every mountain road.</p>
+      <div class="dest-hero-ctas">
+        <a href="#" class="btn-gold open-enquiry"><i class="fas fa-calendar-check"></i> Get Free Quote</a>
+        <a href="https://wa.me/919317082083?text=Hello%20RJ%20Taxi%2C%20I%20need%20a%20taxi%20in%20Dharamshala." class="btn-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+        <a href="tel:+919317082083" class="btn-call"><i class="fas fa-phone-alt"></i> +91-93170 82083</a>
+      </div>
+      <div class="dest-hero-facts">
+        <div class="dest-hero-fact"><div class="dest-hero-fact-val">24×7</div><div class="dest-hero-fact-lbl">Availability</div></div>
+        <div class="dest-hero-fact"><div class="dest-hero-fact-val">12+</div><div class="dest-hero-fact-lbl">Years in Dharamshala</div></div>
+        <div class="dest-hero-fact"><div class="dest-hero-fact-val">4.8★</div><div class="dest-hero-fact-lbl">Google Rating</div></div>
+        <div class="dest-hero-fact"><div class="dest-hero-fact-val">5000+</div><div class="dest-hero-fact-lbl">Happy Travellers</div></div>
+      </div>
+    </div>
   </div>
-</header>
+</section>
 
-<!-- Main Content -->
-<section class="section" aria-label="About Dharamshala taxi services">
+<!-- ═══ INTRODUCTION ═══ -->
+<section class="intro-section" aria-label="About Dharamshala">
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6">
-        <div class="section-eyebrow">Local Taxi in Dharamshala</div>
-        <h2 class="section-title">Explore Every Corner of the Dalai Lama's Town</h2>
-        <p style="color:var(--slate-light);line-height:1.8;margin-bottom:16px;">Dharamshala and McLeodganj are nestled in the Kangra Valley of Himachal Pradesh, offering a unique blend of Tibetan culture, colonial heritage, and stunning mountain landscapes. Whether you're visiting the sacred Dalai Lama Temple or exploring the cafes and trails of McLeodganj, our taxi service ensures smooth, comfortable journeys.</p>
-        <p style="color:var(--slate-light);line-height:1.8;margin-bottom:24px;">Whether you need a quick ride to the Dalai Lama Temple or a full-day sightseeing tour covering Triund, Bhagsunag, Naddi viewpoint, and more, we've got you covered. Our experienced drivers know every shortcut, every scenic spot, and can take you anywhere in Dharamshala, from the bustling bazaar to the peaceful meditation retreats.</p>
-        <div class="d-flex gap-3 flex-wrap">
-          <a href="https://wa.me/919317082083?text=I%20need%20a%20taxi%20in%20Dharamshala." class="btn-gold" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Get Free Quote</a>
-          <a href="tel:+919317082083" class="btn-outline-white" style="border-color:var(--navy);color:var(--navy)"><i class="fas fa-phone-alt"></i> Call Now</a>
+        <div class="section-eyebrow">Little Lhasa of India</div>
+        <h2 class="section-title">Where the Himalayas Meet the Soul</h2>
+        <p class="intro-lead">Dharamshala is not just a destination — it is an experience that quietly rearranges your priorities.</p>
+        <p class="intro-body">Cradled beneath the snow-dusted Dhauladhar range in the Kangra Valley, Dharamshala has captivated travellers for decades. Its upper reaches — known as McLeodganj — serve as the home of His Holiness the Dalai Lama and the Tibetan government in exile, which has given this small Himachali town a rare cosmopolitan energy you will find nowhere else in the mountains.</p>
+        <p class="intro-body">Walking through McLeodganj feels like stepping into two worlds simultaneously. One moment you are admiring a colonial-era stone church built by the British; the next you are circling a gleaming white stupa draped in prayer flags while Tibetan monks debate philosophy in the courtyard of the Tsuglagkhang Complex. Bakeries serving butter tea and momos sit alongside cafés playing Bob Dylan. Yoga studios, meditation retreats, and craft shops fill every lane.</p>
+        <p class="intro-body">Beyond the town, the real magic begins. Trek to Triund and wake to a panorama of jagged Himalayan peaks turning pink at dawn. Follow the forest path to Bhagsunag's twin-tiered waterfall. Drive through Naddi for the most photogenic sunset views of the Dhauladhar range. Head to Palampur to walk through the highest-altitude tea estates in India.</p>
+        <p class="intro-body">Whether you arrive to trek, meditate, explore Tibetan culture, or simply breathe mountain air — Dharamshala will offer more than you expect.</p>
+        <div class="intro-highlights">
+          <div class="intro-highlight"><i class="fas fa-sun"></i><span>Best Season: March–June & Sept–Nov</span></div>
+          <div class="intro-highlight"><i class="fas fa-thermometer-half"></i><span>Summer 15–30°C · Winter 0–12°C</span></div>
+          <div class="intro-highlight"><i class="fas fa-plane"></i><span>Nearest Airport: Gaggal (15 km)</span></div>
+          <div class="intro-highlight"><i class="fas fa-train"></i><span>Nearest Railway: Pathankot (85 km)</span></div>
         </div>
       </div>
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=700&q=80" alt="McLeodganj Dharamshala scenic view" class="img-fluid" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)">
+        <div class="intro-img-stack">
+          <div class="intro-img-pill"><i class="fas fa-star"></i> Rated #1 Taxi in Dharamshala</div>
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="McLeodganj Dharamshala temple and mountains" class="intro-img-main" loading="lazy">
+          <div class="intro-img-badge"><div class="intro-img-badge-num">320+</div><div class="intro-img-badge-txt">5-Star Google Reviews</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services -->
-<section class="section bg-off" aria-label="Dharamshala taxi services list">
+<!-- ═══ WHY RJ TAXI ═══ -->
+<section class="why-rj-section" aria-label="Why choose RJ Taxi">
   <div class="container">
     <div class="text-center mb-5">
-      <div class="section-eyebrow">Our Services</div>
-      <h2 class="section-title">Taxi Services in Dharamshala</h2>
+      <div class="section-eyebrow" style="color:rgba(255,255,255,.5);justify-content:center">Our Promise</div>
+      <h2 class="section-title" style="color:var(--white)">Why Travellers Choose RJ Taxi Services</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,.65);margin:0 auto">Born and based in McLeodganj, we are not a call centre — we are your neighbours who happen to know every road, every shortcut, and every hidden viewpoint.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon"><i class="fas fa-plane-arrival"></i></div><h3 class="service-title">Airport Pickup (Gaggal)</h3><p class="service-desc">24/7 pickup and drop from Gaggal Airport (DHM), 50 km away. Comfortable vehicles, professional drivers.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-train"></i></div><h3 class="service-title">Railway Station Transfers</h3><p class="service-desc">Pickup from Pathankot Railway Station and nearby towns. Hassle-free, timely pickups.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-hotel"></i></div><h3 class="service-title">Hotel Transfers</h3><p class="service-desc">Drop or pickup from any hotel in McLeodganj, Dharamshala, or nearby areas. Prompt, reliable service.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-camera"></i></div><h3 class="service-title">Local Sightseeing</h3><p class="service-desc">Full-day and half-day sightseeing packages. Visit temples, viewpoints, waterfalls, and more.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-hiking"></i></div><h3 class="service-title">Triund Base Drop</h3><p class="service-desc">Drop and pickup service for Triund trek starters at Dharamkot. Early morning availability.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-map-marked-alt"></i></div><h3 class="service-title">Custom Tours</h3><p class="service-desc">Design your own itinerary. We accommodate any route, any time—just tell us where to go.</p></div>
+    <div class="why-rj-grid">
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-map-marked-alt"></i></div><h3 class="why-rj-title">Local Dharamshala Experts</h3><p class="why-rj-desc">We have operated from McLeodganj for over 12 years. Our drivers are not just drivers — they are local guides who know every trail, cafe, and scenic stop.</p></div>
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-user-tie"></i></div><h3 class="why-rj-title">Police-Verified Drivers</h3><p class="why-rj-desc">Every driver undergoes thorough background verification, holds a commercial licence, and is trained in first aid and safe mountain driving.</p></div>
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-shield-virus"></i></div><h3 class="why-rj-title">Clean, Sanitized Vehicles</h3><p class="why-rj-desc">Our vehicles are sanitized before every trip, regularly serviced, and fully insured. GPS tracking available on request for family peace of mind.</p></div>
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-comments"></i></div><h3 class="why-rj-title">English-Speaking Chauffeurs</h3><p class="why-rj-desc">Our drivers communicate comfortably in English and Hindi, making every interaction smooth whether you are a foreign tourist or domestic traveller.</p></div>
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-plane-arrival"></i></div><h3 class="why-rj-title">Airport & Station Pickup</h3><p class="why-rj-desc">We track your flight in real time. If your flight is delayed, your driver waits — no extra charges, no stress, no excuses.</p></div>
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-headset"></i></div><h3 class="why-rj-title">24×7 Support</h3><p class="why-rj-desc">Our team is reachable around the clock on phone and WhatsApp. Need a last-minute booking at 2 AM? We are there.</p></div>
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-sliders-h"></i></div><h3 class="why-rj-title">Fully Customisable Tours</h3><p class="why-rj-desc">No rigid itineraries. You decide the pace, the stops, the hours. We adapt to your travel style — leisurely sightseeing or brisk transfers.</p></div>
+      <div class="why-rj-card"><div class="why-rj-icon"><i class="fas fa-handshake"></i></div><h3 class="why-rj-title">Transparent Communication</h3><p class="why-rj-desc">One quoted price, zero hidden charges. We discuss toll, parking, and permit fees upfront so there are absolutely no surprises at the end of the trip.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Sightseeing Spots -->
-<section class="section" aria-label="Dharamshala sightseeing places">
+<!-- ═══ ITINERARY ═══ -->
+<section class="itinerary-section" aria-label="Dharamshala itinerary">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Sample Plan</div>
+      <h2 class="section-title">A Perfect 4-Day Dharamshala Journey</h2>
+      <p class="section-subtitle" style="margin:0 auto">This itinerary is a starting point. Every trip we plan is customised around your interests, budget, and pace of travel.</p>
+    </div>
+    <div class="itinerary-timeline">
+
+      <div class="itinerary-day">
+        <div class="itinerary-day-num"><span>Day</span><span>01</span></div>
+        <div class="itinerary-day-content">
+          <div class="itinerary-day-title">Arrival & First Impressions of McLeodganj</div>
+          <div class="itinerary-day-route"><i class="fas fa-map-marker-alt"></i> Gaggal Airport / Pathankot → McLeodganj</div>
+          <p class="itinerary-day-text">Your RJ Taxi driver will meet you at Gaggal Airport or Pathankot Railway Station holding a name board — no hunting around, no confusion. As you wind up the mountain road past Dharamshala town and into the pine-scented air of McLeodganj, your driver will point out landmarks and answer any questions about the region.<br><br>After checking in to your hotel, stroll down to the Tsuglagkhang Complex — the Dalai Lama Temple — in the afternoon. The complex houses a beautiful 20-foot golden Buddha and is usually open to visitors for meditation and exploration. In the evening, wander McLeodganj's main square, browse Tibetan handicraft shops, and settle into a rooftop café for your first Himalayan sunset. The mountains glow amber then deep rose before fading into a sky full of stars.</p>
+          <div class="itinerary-day-stops">
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Gaggal Airport Pickup</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Tsuglagkhang Complex</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> McLeodganj Market</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <div class="itinerary-day-num"><span>Day</span><span>02</span></div>
+        <div class="itinerary-day-content">
+          <div class="itinerary-day-title">Bhagsunag, Dharamkot & Triund Base</div>
+          <div class="itinerary-day-route"><i class="fas fa-map-marker-alt"></i> McLeodganj → Bhagsunag → Dharamkot → Gallu Devi</div>
+          <p class="itinerary-day-text">Start your morning with a drive to Bhagsunag — a peaceful temple complex with a natural spring pool, followed by a short walk up to the two-tiered waterfall that tumbles dramatically down a rocky gorge. The path is shaded by oak and rhododendron trees that burst into red bloom in spring.<br><br>From Bhagsunag, your taxi takes you to Dharamkot — a quieter, more artistic village just above McLeodganj that is beloved by long-term travellers, yoga students, and musicians. The air here is cool and clean, with views stretching across the entire Kangra Valley on clear days.<br><br>In the afternoon, drive up to Gallu Devi Temple — the starting point for the legendary Triund trek. Even if you do not trek, the short walk to Gallu temple offers breathtaking views of the Dhauladhar peaks. Trekkers can camp at Triund (3 km, 2-hour hike) and be picked up the next morning. Conclude your day with dinner at a Tibetan restaurant in McLeodganj — try the thukpa or steamed momos.</p>
+          <div class="itinerary-day-stops">
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Bhagsunag Falls</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Dharamkot Village</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Gallu Devi Temple</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Triund Base (Optional Trek)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <div class="itinerary-day-num"><span>Day</span><span>03</span></div>
+        <div class="itinerary-day-content">
+          <div class="itinerary-day-title">Naddi, St. John's Church & Kangra Fort</div>
+          <div class="itinerary-day-route"><i class="fas fa-map-marker-alt"></i> McLeodganj → Naddi → St. John's → Kangra</div>
+          <p class="itinerary-day-text">Begin with a visit to Naddi Viewpoint, located 6 km above McLeodganj. On clear mornings, the unobstructed panorama of the Dhauladhar range — including the pyramidal peak of Lahesh Cave towering at 5,200 metres — is simply breathtaking. Morning is the ideal time to photograph the peaks before afternoon haze sets in.<br><br>Next, descend through the forest to St. John in the Wilderness — a Gothic-style Anglican church built in 1852, surrounded by a quiet graveyard shaded by ancient deodar trees. The solitude of the spot and the ivy-covered stone walls make it one of the most atmospheric places in Dharamshala. There is something deeply moving about standing in this jungle clearing, surrounded by the sounds of birdsong and mountain wind.<br><br>In the afternoon, drive down to Kangra town to explore the massive Kangra Fort — one of the oldest and largest forts in the Himalayas — and the beautifully carved Brajeshwari Devi Temple. Cap the day with a stroll through Dharamshala's cricket stadium, one of the most scenic cricket venues in the world.</p>
+          <div class="itinerary-day-stops">
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Naddi Viewpoint</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> St. John's Church</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Kangra Fort</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Brajeshwari Temple</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> HPCA Cricket Stadium</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-day">
+        <div class="itinerary-day-num"><span>Day</span><span>04</span></div>
+        <div class="itinerary-day-content">
+          <div class="itinerary-day-title">Palampur Tea Gardens & Departure</div>
+          <div class="itinerary-day-route"><i class="fas fa-map-marker-alt"></i> McLeodganj → Palampur → Airport/Station</div>
+          <p class="itinerary-day-text">Before your departure, take a morning drive to Palampur — a charming town 40 km from Dharamshala, set at the foothills of the Dhauladhar range and famous for its vast Kangra Tea estates. Walking through the terraced rows of dark green tea bushes, with the mountains reflected in their polished leaves, is one of those quietly beautiful experiences that stays with you long after you return home.<br><br>Visit the Bundla Tea Factory for a guided tour explaining how Kangra tea — one of India's most prized — is grown, harvested, withered, rolled, and dried. Buy some directly from the factory before you leave. Stop at Chamunda Devi Temple on the return route, then your RJ Taxi driver will take you comfortably to Gaggal Airport or Pathankot Railway Station in time for your onward journey.</p>
+          <div class="itinerary-day-stops">
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Palampur Tea Estates</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Bundla Tea Factory</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Chamunda Devi Temple</span>
+            <span class="itinerary-stop"><i class="fas fa-map-pin"></i> Airport / Station Drop</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-5">
+      <p style="color:var(--slate-light);margin-bottom:20px">This is a sample itinerary. We build custom plans for 1-day to 10-day trips.</p>
+      <a href="#" class="btn-gold open-enquiry"><i class="fas fa-calendar-check"></i> Plan My Custom Itinerary</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ATTRACTIONS ═══ -->
+<section class="attractions-section" aria-label="Dharamshala attractions">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Must-Visit</div>
+      <h2 class="section-title">Top Attractions in Dharamshala & McLeodganj</h2>
+      <p class="section-subtitle" style="margin:0 auto">Our drivers take you to every iconic spot — and the hidden gems most tourists never find.</p>
+    </div>
+    <div class="attractions-grid">
+
+      <div class="attraction-card">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=600&q=80" alt="Tsuglagkhang Dalai Lama Temple McLeodganj" loading="lazy">
+          <span class="attraction-img-badge">Spiritual</span>
+        </div>
+        <div class="attraction-body">
+          <h3 class="attraction-name">Tsuglagkhang Complex</h3>
+          <p class="attraction-desc">The spiritual centre of Tibetan Buddhism in exile. Home of the Dalai Lama, this complex houses the Namgyal Monastery, a museum of Tibetan history, and the stunning 20-foot Shakyamuni Buddha statue. Monks in maroon robes chant, debate, and meditate here daily.</p>
+          <div class="attraction-tip"><i class="fas fa-lightbulb"></i><span>Tip: Arrive early morning (7–9 AM) for a quieter experience. Photography is welcome outside but restricted inside prayer halls.</span></div>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Triund Trek Dharamshala Dhauladhar mountains" loading="lazy">
+          <span class="attraction-img-badge">Adventure</span>
+        </div>
+        <div class="attraction-body">
+          <h3 class="attraction-name">Triund — The Crown of Dharamshala</h3>
+          <p class="attraction-desc">At 2,875 metres, the Triund ridge offers one of the most accessible high-altitude camping experiences in India. The 9 km trail from Gallu Devi Temple passes through oak-rhododendron forest and opens onto a sweeping meadow with 180-degree views of the Dhauladhar and Kangra Valley.</p>
+          <div class="attraction-tip"><i class="fas fa-lightbulb"></i><span>Tip: We drop you at Gallu Devi Temple and pick you up next morning. Carry warm layers — temperatures drop sharply after sunset even in summer.</span></div>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="Bhagsunag Waterfall McLeodganj Dharamshala" loading="lazy">
+          <span class="attraction-img-badge">Nature</span>
+        </div>
+        <div class="attraction-body">
+          <h3 class="attraction-name">Bhagsunag Waterfall</h3>
+          <p class="attraction-desc">A 20-minute walk from McLeodganj leads to the twin cascades of Bhagsunag Falls, tumbling down black granite rocks into a crystal pool. The ancient Bhagsunath Shiva temple at the base is one of the oldest in Kangra district, drawing both pilgrims and tourists.</p>
+          <div class="attraction-tip"><i class="fas fa-lightbulb"></i><span>Tip: Visit on weekdays to avoid weekend crowds. The walk up is easy and suitable for all fitness levels.</span></div>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Naddi viewpoint Dhauladhar range Dharamshala" loading="lazy">
+          <span class="attraction-img-badge">Viewpoint</span>
+        </div>
+        <div class="attraction-body">
+          <h3 class="attraction-name">Naddi Viewpoint</h3>
+          <p class="attraction-desc">Perched 6 km above McLeodganj, Naddi offers arguably the finest panorama of the Dhauladhar range. The small village is home to several yoga centres and guesthouses. On clear days, you can see peaks over 5,000 metres from the roadside viewpoint.</p>
+          <div class="attraction-tip"><i class="fas fa-lightbulb"></i><span>Tip: Come at sunrise or just before sunset for golden hour photography. The Dal Lake below Naddi is worth a short detour.</span></div>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=600&q=80" alt="St John in the Wilderness Church Dharamshala" loading="lazy">
+          <span class="attraction-img-badge">Heritage</span>
+        </div>
+        <div class="attraction-body">
+          <h3 class="attraction-name">St. John in the Wilderness</h3>
+          <p class="attraction-desc">Built in 1852 by British colonials, this Gothic stone church stands in a quiet forest clearing 3 km from McLeodganj. The stained glass windows were donated by Lady Elgin in memory of Lord Elgin, the 8th Viceroy of India, who is buried here. A deeply atmospheric colonial-era gem.</p>
+          <div class="attraction-tip"><i class="fas fa-lightbulb"></i><span>Tip: The surrounding graveyard and forest path make for wonderful walks. Combine with a visit to Dharamkot village nearby.</span></div>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Palampur tea estate Kangra Valley Himachal" loading="lazy">
+          <span class="attraction-img-badge">Cultural</span>
+        </div>
+        <div class="attraction-body">
+          <h3 class="attraction-name">Palampur Tea Gardens</h3>
+          <p class="attraction-desc">Located 40 km from Dharamshala, Palampur is India's northernmost tea-growing region. The terraced estates produce the rare Kangra Tea — a light, delicate brew once exported to Russia. Walking through rows of manicured tea bushes with the Dhauladhar as backdrop is utterly serene.</p>
+          <div class="attraction-tip"><i class="fas fa-lightbulb"></i><span>Tip: Visit the Bundla Tea Factory for a free guided tour and buy fresh estate tea directly from the factory at best prices.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PLACES COVERED ═══ -->
+<section class="places-section bg-off" aria-label="Places covered">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Coverage</div>
+      <h2 class="section-title">All Places We Cover Around Dharamshala</h2>
+    </div>
+    <div class="places-grid">
+      <div class="place-chip"><i class="fas fa-map-pin"></i> McLeodganj</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Dharamkot</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Bhagsunag</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Triund Base</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Naddi</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Gaggal Airport</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Pathankot Railway</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Kangra Fort</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Masrur Rock Temple</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Palampur</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Baijnath Temple</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Chamunda Devi</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Dal Lake</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Dharamshala Cricket Stadium</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> St. John's Church</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Sidhpur</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Norbulingka Institute</div>
+      <div class="place-chip"><i class="fas fa-map-pin"></i> Gyuto Monastery</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLEET ═══ -->
+<section class="fleet-section" aria-label="Vehicle fleet">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Our Fleet</div>
+      <h2 class="section-title">Choose Your Perfect Vehicle</h2>
+      <p class="section-subtitle" style="margin:0 auto">All vehicles are AC-equipped, GPS-fitted, sanitized before every trip, and maintained to the highest standard.</p>
+    </div>
+    <div class="fleet-grid">
+      <div class="fleet-card">
+        <div class="fleet-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500&q=75" alt="Swift Dzire sedan taxi Dharamshala" loading="lazy"></div>
+        <div class="fleet-body">
+          <span class="fleet-badge">Economy</span>
+          <div class="fleet-name">Sedan (Swift Dzire / Etios)</div>
+          <div class="fleet-caps">
+            <span class="fleet-cap"><i class="fas fa-users"></i> 4 Passengers</span>
+            <span class="fleet-cap"><i class="fas fa-suitcase"></i> 2 Bags</span>
+          </div>
+          <div class="fleet-features">
+            <div class="fleet-feature"><i class="fas fa-check"></i> Air Conditioning</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> Music System</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> Ideal: Couples & Solo</div>
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-img"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&q=75" alt="Maruti Ertiga MPV taxi Dharamshala" loading="lazy"></div>
+        <div class="fleet-body">
+          <span class="fleet-badge">Comfort</span>
+          <div class="fleet-name">Ertiga / XL6 MPV</div>
+          <div class="fleet-caps">
+            <span class="fleet-cap"><i class="fas fa-users"></i> 6 Passengers</span>
+            <span class="fleet-cap"><i class="fas fa-suitcase"></i> 3 Bags</span>
+          </div>
+          <div class="fleet-features">
+            <div class="fleet-feature"><i class="fas fa-check"></i> Spacious Cabin</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> Push-back Seats</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> Ideal: Small Families</div>
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-img"><img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&q=75" alt="Toyota Innova Crysta taxi mountain Himachal" loading="lazy"></div>
+        <div class="fleet-body">
+          <span class="fleet-badge">Premium</span>
+          <div class="fleet-name">Toyota Innova Crysta</div>
+          <div class="fleet-caps">
+            <span class="fleet-cap"><i class="fas fa-users"></i> 6–7 Passengers</span>
+            <span class="fleet-cap"><i class="fas fa-suitcase"></i> 4 Bags</span>
+          </div>
+          <div class="fleet-features">
+            <div class="fleet-feature"><i class="fas fa-check"></i> Captain Seats</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> Best for Mountains</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> Ideal: Families & Groups</div>
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-img"><img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=500&q=75" alt="Tempo Traveller group taxi Dharamshala Himachal" loading="lazy"></div>
+        <div class="fleet-body">
+          <span class="fleet-badge">Group</span>
+          <div class="fleet-name">Tempo Traveller</div>
+          <div class="fleet-caps">
+            <span class="fleet-cap"><i class="fas fa-users"></i> 10–16 Seats</span>
+            <span class="fleet-cap"><i class="fas fa-suitcase"></i> Large Luggage</span>
+          </div>
+          <div class="fleet-features">
+            <div class="fleet-feature"><i class="fas fa-check"></i> Push-back Recliner Seats</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> LED Lighting & Music</div>
+            <div class="fleet-feature"><i class="fas fa-check"></i> Ideal: Groups & Pilgrimages</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="group-transport.html" class="btn-gold"><i class="fas fa-bus"></i> View Full Fleet & Group Vehicles</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICE ENQUIRY ═══ -->
+<section class="price-enquiry-section" aria-label="Price enquiry">
+  <div class="container">
+    <div class="price-enquiry-box">
+      <div class="price-enquiry-tag"><i class="fas fa-tag"></i> Personalised Pricing</div>
+      <h2 class="price-enquiry-title">Tour Price — On Request</h2>
+      <p class="price-enquiry-sub">We don't believe in one-size-fits-all pricing. Every journey is unique and your quote reflects exactly what you need.</p>
+      <div class="price-factors">
+        <div class="price-factor"><i class="fas fa-car"></i> Vehicle category chosen</div>
+        <div class="price-factor"><i class="fas fa-calendar-alt"></i> Travel season & dates</div>
+        <div class="price-factor"><i class="fas fa-users"></i> Number of passengers</div>
+        <div class="price-factor"><i class="fas fa-map-marker-alt"></i> Pickup & drop locations</div>
+        <div class="price-factor"><i class="fas fa-route"></i> Route & duration of trip</div>
+        <div class="price-factor"><i class="fas fa-hotel"></i> Hotel inclusions if needed</div>
+      </div>
+      <p style="font-size:.9rem;color:var(--slate-light);margin-bottom:28px">Share your travel dates and requirements with us — we respond within 30 minutes with a competitive, transparent quote.</p>
+      <div class="enquiry-ctas">
+        <a href="#" class="btn-enquiry-primary open-enquiry"><i class="fas fa-calendar-check"></i> Get Free Quote</a>
+        <a href="https://wa.me/919317082083?text=Hi%2C%20I%20need%20a%20Dharamshala%20taxi%20quote." class="btn-enquiry-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+        <a href="tel:+919317082083" class="btn-enquiry-call"><i class="fas fa-phone-alt"></i> Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="dest-gallery-section" aria-label="Dharamshala photo gallery">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Photo Gallery</div>
+      <h2 class="section-title">Dharamshala Through Our Lens</h2>
+      <p class="section-subtitle" style="margin:0 auto">Landscapes, temples, trekking trails, and mountain roads — a visual journey through the Kangra Valley.</p>
+    </div>
+    <div class="dest-gallery-grid">
+      <div class="dest-gallery-item span-2" data-category="landscape">
+        <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=800&q=80" alt="McLeodganj panorama Dharamshala mountains" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item" data-category="temple">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=75" alt="Bhagsunag waterfall Dharamshala" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=75" alt="Dhauladhar mountains snow peaks Dharamshala" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&q=75" alt="Naddi viewpoint sunrise Dharamshala" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item row-2" data-category="landscape">
+        <img src="https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=500&q=75" alt="Triund trek Dhauladhar view camping" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item" data-category="culture">
+        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&q=75" alt="Tibetan prayer flags McLeodganj" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item" data-category="landscape">
+        <img src="https://images.unsplash.com/photo-1574086913877-c56eabf11fe2?w=500&q=75" alt="Kangra Valley view from Dharamshala" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item" data-category="road">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=75" alt="Mountain road taxi Dharamshala Himachal" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="dest-gallery-item" data-category="temple">
+        <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=500&q=75" alt="Dharamshala temple Kangra culture" loading="lazy">
+        <div class="dest-gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="dest-testimonials" aria-label="Customer reviews">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Reviews</div>
+      <h2 class="section-title">What Travellers Say About Our Dharamshala Service</h2>
+    </div>
+    <div class="dest-testimonials-grid">
+      <div class="dest-testimonial-card">
+        <div class="dest-testimonial-stars">★★★★★</div>
+        <p class="dest-testimonial-text">Booked RJ Taxi for a 4-day Dharamshala trip with my family of five. The Innova Crysta was spotless, the driver Suresh was incredibly helpful and took us to spots not even mentioned in our travel guide. The tea estate visit in Palampur was an unexpected highlight.</p>
+        <div class="dest-testimonial-author">
+          <img src="https://i.pravatar.cc/46?img=11" alt="Priya Sharma" class="dest-testimonial-avatar" loading="lazy">
+          <div><div class="dest-testimonial-name">Priya Sharma</div><div class="dest-testimonial-trip"><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> Delhi · Family Trip</div></div>
+        </div>
+      </div>
+      <div class="dest-testimonial-card">
+        <div class="dest-testimonial-stars">★★★★★</div>
+        <p class="dest-testimonial-text">Late-night flight into Gaggal, driver was already waiting with a name board. Car was clean and comfortable. The driver dropped me safely at my McLeodganj hotel and even helped carry luggage upstairs. Will absolutely use RJ Taxi on my next visit to Dharamshala.</p>
+        <div class="dest-testimonial-author">
+          <img src="https://i.pravatar.cc/46?img=33" alt="James Hartley" class="dest-testimonial-avatar" loading="lazy">
+          <div><div class="dest-testimonial-name">James Hartley</div><div class="dest-testimonial-trip"><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> London, UK · Solo Travel</div></div>
+        </div>
+      </div>
+      <div class="dest-testimonial-card">
+        <div class="dest-testimonial-stars">★★★★★</div>
+        <p class="dest-testimonial-text">Our honeymoon Dharamshala package was perfectly handled. The driver knew exactly when to give us space and when to suggest the next perfect photo spot. Watching the sunset from Naddi viewpoint while the driver waited patiently — that memory will last a lifetime.</p>
+        <div class="dest-testimonial-author">
+          <img src="https://i.pravatar.cc/46?img=47" alt="Ananya & Rohan" class="dest-testimonial-avatar" loading="lazy">
+          <div><div class="dest-testimonial-name">Ananya & Rohan</div><div class="dest-testimonial-trip"><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> Bangalore · Honeymoon</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="dest-faq-section" aria-label="FAQ">
   <div class="container">
     <div class="text-center mb-5">
-      <div class="section-eyebrow">Must-Visit Places</div>
-      <h2 class="section-title">Top Sightseeing Spots in Dharamshala</h2>
-      <p class="section-subtitle">Our drivers know every route and viewpoint. Here are the places we'll take you to:</p>
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle" style="margin:0 auto">Everything you need to know before booking your Dharamshala taxi.</p>
     </div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="dest-card" style="aspect-ratio:4/3">
-          <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=500&q=75" alt="Dalai Lama Temple Complex Dharamshala" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          <div class="dest-overlay"><div class="dest-name">Dalai Lama Temple</div><div class="dest-info">Tsuglagkhang Complex, McLeodganj</div></div>
-        </div>
+    <div class="dest-faq-grid">
+      <div>
+        <div class="faq-item"><div class="faq-question">Which is the best time to visit Dharamshala? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">March to June offers pleasant weather (15–28°C) ideal for trekking and sightseeing. September to November brings crystal-clear skies after monsoon. December to February is cold (0–10°C) but snowfall is possible — magical but roads can be challenging. July–August is monsoon season with lush greenery but occasional road closures.</div></div>
+        <div class="faq-item"><div class="faq-question">Is airport pickup available from Gaggal Airport? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Absolutely. We provide 24/7 pickup from Gaggal (Kangra) Airport, which is 15 km from Dharamshala and 18 km from McLeodganj. We track your flight and adjust pickup time if there are delays — no extra charges.</div></div>
+        <div class="faq-item"><div class="faq-question">Can I trek to Triund and get a taxi pick-up the next morning? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Yes! This is one of our most popular services. We drop you at Gallu Devi Temple, you trek up to Triund and camp overnight, and we pick you up the following morning at a pre-arranged time. Just WhatsApp us when you're heading back down.</div></div>
+        <div class="faq-item"><div class="faq-question">Do your drivers speak English? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Yes. Most of our drivers are comfortable in English, especially for common traveller needs like navigating, restaurant recommendations, sightseeing tips, and general conversation. For foreign tourists, we can request our most fluent English-speaking drivers.</div></div>
+        <div class="faq-item"><div class="faq-question">Can I book a one-way taxi from Delhi to Dharamshala? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Yes, we offer one-way taxis from Delhi, Chandigarh, Amritsar, and all major North Indian cities to Dharamshala and McLeodganj. The Delhi–Dharamshala drive is approximately 8 hours and we recommend an early morning departure to enjoy the mountain scenery during daylight.</div></div>
+        <div class="faq-item"><div class="faq-question">What vehicle is best for a family of 5–6 with luggage? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">The Toyota Innova Crysta is ideal for families of 5–7 with full luggage. It offers captain seats, excellent road clearance for mountain terrain, and a large boot. For 6+ passengers, we recommend the Tempo Traveller for extra comfort and space.</div></div>
       </div>
-      <div class="col-md-4">
-        <div class="dest-card" style="aspect-ratio:4/3">
-          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=75" alt="Bhagsunag Waterfall McLeodganj taxi" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          <div class="dest-overlay"><div class="dest-name">Bhagsunag Waterfall</div><div class="dest-info">2 km from McLeodganj</div></div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="dest-card" style="aspect-ratio:4/3">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=75" alt="Triund Trek Dharamshala taxi drop" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          <div class="dest-overlay"><div class="dest-name">Triund Viewpoint</div><div class="dest-info">Trek start at Dharamkot</div></div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="dest-card" style="aspect-ratio:4/3">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=75" alt="Naddi Viewpoint Dharamshala" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          <div class="dest-overlay"><div class="dest-name">Naddi Viewpoint</div><div class="dest-info">Stunning Dhauladhar views</div></div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="dest-card" style="aspect-ratio:4/3">
-          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=75" alt="St John in the Wilderness Church Dharamshala" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          <div class="dest-overlay"><div class="dest-name">St. John's Church</div><div class="dest-info">Colonial heritage in the jungle</div></div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="dest-card" style="aspect-ratio:4/3">
-          <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=500&q=75" alt="Palampur Tea Garden Himachal Pradesh taxi" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          <div class="dest-overlay"><div class="dest-name">Palampur Tea Gardens</div><div class="dest-info">40 km from Dharamshala</div></div>
-        </div>
+      <div>
+        <div class="faq-item"><div class="faq-question">Are your taxis available for outstation trips from Dharamshala? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Yes, we cover all major outstation routes — Dharamshala to Manali, Shimla, Dalhousie, Chandigarh, Delhi, Amritsar, Haridwar, and beyond. All inter-state permits are handled by us. Contact us with your route for a custom quote.</div></div>
+        <div class="faq-item"><div class="faq-question">Is there a taxi available late at night in Dharamshala? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Yes, we operate 24 hours a day, 365 days a year. Late-night airport pickups, early morning departures, and festival-season bookings — we are always available. Just WhatsApp or call us any time.</div></div>
+        <div class="faq-item"><div class="faq-question">Can you arrange a multi-day tour of Himachal Pradesh from Dharamshala? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Absolutely. We specialise in multi-day Himachal Pradesh tours covering Dharamshala, Dalhousie, Khajjiar, Chamba, Manali, Kasol, and Shimla — all in one circuit. We plan the route, manage the driving, and you just enjoy the journey.</div></div>
+        <div class="faq-item"><div class="faq-question">How do I make a booking with RJ Taxi Services? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Booking is simple: WhatsApp or call us at +91-9317082083, or fill out the enquiry form on this page. Share your pickup location, destination, date, and group size — we respond within 30 minutes with confirmation and driver details.</div></div>
+        <div class="faq-item"><div class="faq-question">Are there any hidden charges in your taxi service? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Never. We quote a complete price upfront including fuel, driver allowance, and tolls on the agreed route. Any additional stops or route changes are discussed and agreed upon before they incur any additional cost.</div></div>
+        <div class="faq-item"><div class="faq-question">Do you offer group taxis for 15–20 people in Dharamshala? <i class="fas fa-plus faq-icon"></i></div><div class="faq-answer">Yes. For groups of 10–16 we provide Tempo Travellers; for 20+ guests we have Luxury AC Buses and Volvo Coaches. We handle corporate retreats, school trips, pilgrimages, and wedding transportation across North India.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Pricing Table -->
-<section class="section bg-off" aria-label="Dharamshala taxi pricing">
-  <div class="container">
-    <div class="text-center mb-5">
-      <div class="section-eyebrow">Fare Guide</div>
-      <h2 class="section-title">Dharamshala Taxi Rates</h2>
-      <p class="section-subtitle">Approximate fares from McLeodganj/Dharamshala. Final price confirmed at booking.</p>
+<!-- ═══ FINAL CTA ═══ -->
+<section class="dest-final-cta" aria-label="Book your Dharamshala taxi">
+  <div class="dest-final-cta-bg" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=70')"></div>
+  <div class="container dest-final-cta-content">
+    <div class="section-eyebrow" style="justify-content:center;color:rgba(255,255,255,.5)">Ready to Travel?</div>
+    <h2>Let's Plan Your Dharamshala Journey</h2>
+    <p>Whether you're a solo traveller seeking mountain solitude, a family craving cultural immersion, a couple on a honeymoon escape, or a group on a pilgrimage — RJ Taxi Services makes every journey through Dharamshala and McLeodganj safe, comfortable, and truly memorable.</p>
+    <div class="dest-hero-ctas" style="justify-content:center">
+      <a href="#" class="btn-gold open-enquiry" style="font-size:1rem;padding:15px 30px"><i class="fas fa-calendar-check"></i> Get Free Quote</a>
+      <a href="https://wa.me/919317082083?text=Hello%20RJ%20Taxi%2C%20I%20want%20to%20plan%20my%20Dharamshala%20trip." class="btn-whatsapp" target="_blank" rel="noopener" style="font-size:1rem;padding:15px 26px"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="tel:+919317082083" class="btn-call" style="font-size:1rem;padding:13px 24px"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
-    <div style="overflow-x:auto">
-      <table class="price-table">
-        <thead><tr><th>Route</th><th>Sedan/Hatchback</th><th>SUV/Innova</th><th>Duration</th></tr></thead>
-        <tbody>
-          <tr><td>McLeodganj → Gaggal Airport</td><td class="price-cell">₹600</td><td class="price-cell">₹900</td><td>45 min</td></tr>
-          <tr><td>McLeodganj → Pathankot Railway</td><td class="price-cell">₹1,200</td><td class="price-cell">₹1,600</td><td>1.5 hrs</td></tr>
-          <tr><td>Full Day Dharamshala Sightseeing</td><td class="price-cell">₹1,500</td><td class="price-cell">₹2,000</td><td>8 hrs</td></tr>
-          <tr><td>Half Day Local Tour</td><td class="price-cell">₹800</td><td class="price-cell">₹1,100</td><td>4 hrs</td></tr>
-          <tr><td>McLeodganj → Dharamshala Town</td><td class="price-cell">₹300</td><td class="price-cell">₹400</td><td>20 min</td></tr>
-          <tr><td>McLeodganj → Palampur Tea Gardens</td><td class="price-cell">₹1,200</td><td class="price-cell">₹1,600</td><td>2 hrs</td></tr>
-          <tr><td>McLeodganj → Chandigarh</td><td class="price-cell">₹3,500</td><td class="price-cell">₹4,500</td><td>4.5 hrs</td></tr>
-          <tr><td>McLeodganj → Delhi</td><td class="price-cell">₹5,500</td><td class="price-cell">₹7,000</td><td>8 hrs</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:.8rem;color:var(--slate-light);margin-top:12px;">* Prices are indicative. Actual fares depend on vehicle type, route, and season. Call or WhatsApp for a confirmed quote.</p>
-  </div>
-</section>
-
-<!-- Booking CTA -->
-<section class="cta-banner" aria-label="Book Dharamshala taxi">
-  <div class="container text-center" style="position:relative;z-index:2">
-    <h2 class="cta-title">Book Your Dharamshala Taxi Now</h2>
-    <p class="cta-subtitle">Call or WhatsApp us for immediate booking confirmation. Available 24×7.</p>
-    <div class="cta-actions">
-      <a href="https://wa.me/919317082083?text=Hello%2C%20I%20need%20a%20taxi%20in%20Dharamshala." class="btn-gold" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp for Instant Quote</a>
-      <a href="tel:+919317082083" class="btn-outline-white"><i class="fas fa-phone-alt"></i> +91-9317082083</a>
+    <!-- Internal Links -->
+    <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.15)">
+      <p style="color:rgba(255,255,255,.5);font-size:.82rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px">Also Explore</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a href="manali.html" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:7px 18px;border-radius:50px;font-size:.82rem;transition:all .25s">Manali →</a>
+        <a href="shimla.html" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:7px 18px;border-radius:50px;font-size:.82rem;transition:all .25s">Shimla →</a>
+        <a href="dalhousie.html" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:7px 18px;border-radius:50px;font-size:.82rem;transition:all .25s">Dalhousie →</a>
+        <a href="punjab.html" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:7px 18px;border-radius:50px;font-size:.82rem;transition:all .25s">Punjab →</a>
+        <a href="uttarakhand.html" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:7px 18px;border-radius:50px;font-size:.82rem;transition:all .25s">Uttarakhand →</a>
+        <a href="group-transport.html" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:7px 18px;border-radius:50px;font-size:.82rem;transition:all .25s">Group Transport →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="footer" aria-label="Footer">
+<!-- Footer -->
+<footer class="footer" aria-label="Site footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><a href="../index.html" class="nav-logo"><div class="nav-logo-icon"><i class="fas fa-taxi"></i></div><div class="nav-logo-text"><span class="nav-logo-name">RJ Taxi Services</span><span class="nav-logo-sub">Dharamshala & McLeodganj</span></div></a><p>Premium taxi & sightseeing services across Himachal Pradesh. Book now for safe, comfortable journeys.</p></div>
-      <div><div class="footer-heading">Destinations</div><ul class="footer-links"><li><a href="dharamshala.html">Dharamshala</a></li><li><a href="shimla.html">Shimla</a></li><li><a href="manali.html">Manali</a></li><li><a href="dalhousie.html">Dalhousie</a></li><li><a href="punjab.html">Punjab</a></li><li><a href="uttarakhand.html">Uttarakhand</a></li></ul></div>
-      <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="group-transport.html">Group Transport</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="blog.html">Blog</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
-      <div><div class="footer-heading">Contact</div><ul class="footer-contact"><li><i class="fas fa-map-marker-alt"></i><span>McLeodganj, Dharamshala<br>H.P. – 176219</span></li><li><i class="fas fa-phone"></i><a href="tel:+919317082083">+91-9317082083</a></li><li><i class="fab fa-whatsapp"></i><a href="https://wa.me/919317082083">WhatsApp Us</a></li></ul></div>
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo"><div class="nav-logo-icon"><i class="fas fa-taxi"></i></div><div class="nav-logo-text"><span class="nav-logo-name">RJ Taxi Services</span><span class="nav-logo-sub">Dharamshala</span></div></a>
+        <p>Reliable, professional taxi and tour services from McLeodganj, Dharamshala across North India. Trusted by 5,000+ travellers since 2012.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/rj_taxi_services" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/19FHgZVTGR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919317082083" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://share.google/i0e3IjnwFubFyGx5q" target="_blank" rel="noopener" aria-label="Google Reviews"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Destinations</div>
+        <ul class="footer-links">
+          <li><a href="dharamshala.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Dharamshala</a></li>
+          <li><a href="shimla.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Shimla</a></li>
+          <li><a href="manali.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Manali</a></li>
+          <li><a href="dalhousie.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Dalhousie</a></li>
+          <li><a href="punjab.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Punjab</a></li>
+          <li><a href="uttarakhand.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Uttarakhand</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="../index.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Home</a></li>
+          <li><a href="group-transport.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Group Transport</a></li>
+          <li><a href="gallery.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Gallery</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Blog</a></li>
+          <li><a href="https://share.google/i0e3IjnwFubFyGx5q" target="_blank" rel="noopener"><i class="fas fa-star" style="font-size:.65rem;color:var(--gold)"></i> Google Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact Us</div>
+        <ul class="footer-contact">
+          <li><i class="fas fa-map-marker-alt"></i><span>McLeodganj, Dharamshala<br>Himachal Pradesh – 176219</span></li>
+          <li><i class="fas fa-phone-alt"></i><a href="tel:+919317082083" style="color:rgba(255,255,255,.6)">+91-9317082083</a></li>
+          <li><i class="fas fa-envelope"></i><a href="mailto:rjtaxiservicesdharamshala@gmail.com" style="color:rgba(255,255,255,.6);font-size:.78rem;word-break:break-all">rjtaxiservicesdharamshala@gmail.com</a></li>
+          <li><i class="fas fa-clock"></i><span>Available 24×7, 365 days</span></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2024 RJ Taxi Services Dharamshala. All rights reserved.</p></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 RJ Taxi Services Dharamshala. All rights reserved. | McLeodganj, Dharamshala, Himachal Pradesh 176219</p>
+    </div>
   </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/main.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/destinations.js"></script>
 </body>
 </html>
