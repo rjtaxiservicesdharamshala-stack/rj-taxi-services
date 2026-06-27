@@ -45,7 +45,15 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
-
+  // Mobile dropdown toggle
+document.querySelectorAll('.nav-dropdown > .nav-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('open');
+        }
+    });
+});
   /* ---- Back to Top ---- */
   const backTop = document.querySelector('.back-top');
   if (backTop) {
