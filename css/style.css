@@ -879,10 +879,22 @@ ul { list-style: none; }
     gap: 4px; overflow-y: auto;
   }
   .nav-dropdown-menu {
-    position: static; transform: none !important;
-    box-shadow: none; background: rgba(255,255,255,.05);
-    border: none; padding-left: 16px;
+    position: static;
+    transform: none !important;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    background: rgba(255,255,255,.05);
+    border: none;
+    border-radius: 8px;
+    box-shadow: none;
+    padding: 10px 0 10px 15px;
+    margin-top: 8px;
+    min-width: auto;
   }
+  .nav-dropdown.open .nav-dropdown-menu {
+    display: block;
+}
   .booking-form { grid-template-columns: 1fr; }
   .booking-btn { padding: 16px; }
   .hero-stats { gap: 24px; }
