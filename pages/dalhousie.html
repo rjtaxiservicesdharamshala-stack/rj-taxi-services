@@ -24,7 +24,81 @@
   ]}}</script>
 </head>
 <body>
-{NAV}
+  
+<!-- Page Loader -->
+<div id="page-loader"><div class="loader-logo">RJ <span>Taxi</span></div><div class="loader-bar"></div></div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <button id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="Gallery image">
+</div>
+
+<!-- Enquiry Modal -->
+<div id="modal-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:8000;opacity:0;visibility:hidden;transition:all .3s ease"></div>
+<div id="enquiry-modal" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.95);z-index:8001;background:#fff;border-radius:20px;padding:40px;width:min(540px,95vw);opacity:0;visibility:hidden;transition:all .3s ease;box-shadow:0 24px 64px rgba(0,0,0,.25)">
+  <button id="modal-close" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#4A5568">&times;</button>
+  <div class="section-eyebrow" style="margin-bottom:8px">Free Quote</div>
+  <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:20px">Get a Customised Quote</h3>
+  <form id="modal-enquiry-form">
+    <div class="form-group"><label class="form-label" for="modal-dest">Destination / Route</label><input class="form-control" id="modal-dest" name="dest" placeholder="e.g. Dalhousie 3 days" required></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="form-group"><label class="form-label" for="modal-name">Your Name</label><input class="form-control" id="modal-name" name="name" placeholder="Full name" required></div>
+      <div class="form-group"><label class="form-label" for="modal-phone">Phone</label><input class="form-control" id="modal-phone" name="phone" type="tel" placeholder="+91-XXXXXXXXXX" required></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="form-group"><label class="form-label" for="modal-travel">Travel Date</label><input class="form-control" id="modal-travel" name="travel" type="date"></div>
+      <div class="form-group"><label class="form-label" for="modal-pax">Passengers</label><select class="form-control" id="modal-pax" name="pax"><option>1-3</option><option>4-6</option><option>7-12</option><option>13+</option></select></div>
+    </div>
+    <button type="submit" class="btn-gold" style="width:100%;justify-content:center;margin-top:4px"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+  </form>
+</div>
+<script>
+(function(){
+  var modal=document.getElementById("enquiry-modal"),overlay=document.getElementById("modal-overlay");
+  function openM(){modal.style.opacity="1";modal.style.visibility="visible";modal.style.transform="translate(-50%,-50%) scale(1)";overlay.style.opacity="1";overlay.style.visibility="visible";document.body.style.overflow="hidden";}
+  function closeM(){modal.style.opacity="0";modal.style.visibility="hidden";modal.style.transform="translate(-50%,-50%) scale(.95)";overlay.style.opacity="0";overlay.style.visibility="hidden";document.body.style.overflow="";}
+  document.querySelectorAll(".open-enquiry").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();openM();});});
+  document.getElementById("modal-close").addEventListener("click",closeM);
+  overlay.addEventListener("click",closeM);
+  document.getElementById("modal-enquiry-form").addEventListener("submit",function(e){
+    e.preventDefault();
+    var dest=document.getElementById("modal-dest").value,name=document.getElementById("modal-name").value,phone=document.getElementById("modal-phone").value,travel=document.getElementById("modal-travel").value,pax=document.getElementById("modal-pax").value;
+    var msg=encodeURIComponent("Hello RJ Taxi!\\n\\nI need a quote:\\nRoute: "+dest+"\\nName: "+name+"\\nPhone: "+phone+"\\nDate: "+travel+"\\nPassengers: "+pax+"\\n\\nPlease share best rates.");
+    window.open("https://wa.me/919317082083?text="+msg,"_blank");closeM();
+  });
+})();
+</script>
+
+<!-- Floating Buttons -->
+<a href="https://wa.me/919317082083?text=Hello%20RJ%20Taxi%2C%20I%20need%20a%20taxi%20in%20Dharamshala." class="float-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+919317082083" class="float-call" aria-label="Call us"><i class="fas fa-phone-alt"></i></a>
+<button class="back-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Navigation -->
+<nav id="navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-icon"><i class="fas fa-taxi"></i></div><div class="nav-logo-text"><span class="nav-logo-name">RJ Taxi Services</span><span class="nav-logo-sub">Dharamshala</span></div></a>
+    <ul class="nav-menu">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li class="nav-dropdown"><a href="#" class="nav-link active">Destinations <i class="fas fa-chevron-down" style="font-size:.65rem;margin-left:4px"></i></a>
+        <div class="nav-dropdown-menu">
+          <a href="dharamshala.html"><i class="fas fa-mountain"></i> Dharamshala</a>
+          <a href="shimla.html"><i class="fas fa-snowflake"></i> Shimla</a>
+          <a href="manali.html"><i class="fas fa-mountain"></i> Manali</a>
+          <a href="dalhousie.html"><i class="fas fa-tree"></i> Dalhousie</a>
+          <a href="punjab.html"><i class="fas fa-place-of-worship"></i> Punjab</a>
+          <a href="uttarakhand.html"><i class="fas fa-om"></i> Uttarakhand</a>
+        </div>
+      </li>
+      <li><a href="group-transport.html" class="nav-link">Group Transport</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="#" class="nav-link nav-cta open-enquiry"><i class="fas fa-calendar-check"></i> Get Free Quote</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="dest-hero" aria-label="Dalhousie taxi service">
