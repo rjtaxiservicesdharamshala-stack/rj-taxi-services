@@ -82,6 +82,7 @@ ul { list-style: none; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   padding: 0 0;
   transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+  isolation: isolate;
 }
 #navbar.scrolled {
   background: rgba(11,31,58,.97);
@@ -877,6 +878,7 @@ ul { list-style: none; }
     position: fixed; inset: 0; top: 72px;
     background: var(--navy); padding: 24px;
     gap: 4px; overflow-y: auto;
+    z-index: 1000;
   }
   .nav-dropdown-menu {
     position: static;
