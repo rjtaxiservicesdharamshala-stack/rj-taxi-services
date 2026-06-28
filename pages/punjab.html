@@ -25,11 +25,49 @@
 </head>
 <body>
   
-<!-- Page Loader -->
-<div id="page-loader"><div class="loader-logo">RJ <span>Taxi</span></div><div class="loader-bar"></div></div>
+  <!-- Page Loader -->
+  <div id="page-loader"><div class="loader-logo">RJ <span>Taxi</span></div><div class="loader-bar"></div></div>
 
-<!-- HERO -->
-<section class="dest-hero" aria-label="Punjab taxi service">
+  <!-- Lightbox -->  
+  <div id="lightbox" class="lightbox"><button id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button><img id="lightbox-img" src="" alt="Gallery image"></div>
+  
+  
+  <div id="modal-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:8000;opacity:0;visibility:hidden;transition:all .3s ease"></div>
+<div id="enquiry-modal" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.95);z-index:8001;background:#fff;border-radius:20px;padding:40px;width:min(540px,95vw);opacity:0;visibility:hidden;transition:all .3s ease;box-shadow:0 24px 64px rgba(0,0,0,.25)">
+  <button id="modal-close" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#4A5568">&times;</button>
+  <div class="section-eyebrow" style="margin-bottom:8px">Free Quote</div>
+  <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:20px">Get a Customised Quote</h3>
+  <form id="modal-enquiry-form">
+    <div class="form-group"><label class="form-label" for="modal-dest">Destination / Route</label><input class="form-control" id="modal-dest" name="dest" placeholder="e.g. Amritsar 2 days" required></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="form-group"><label class="form-label" for="modal-name">Your Name</label><input class="form-control" id="modal-name" name="name" placeholder="Full name" required></div>
+      <div class="form-group"><label class="form-label" for="modal-phone">Phone</label><input class="form-control" id="modal-phone" name="phone" type="tel" placeholder="+91-XXXXXXXXXX" required></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="form-group"><label class="form-label" for="modal-travel">Travel Date</label><input class="form-control" id="modal-travel" name="travel" type="date"></div>
+      <div class="form-group"><label class="form-label" for="modal-pax">Passengers</label><select class="form-control" id="modal-pax" name="pax"><option>1-3</option><option>4-6</option><option>7-12</option><option>13+</option></select></div>
+    </div>
+    <button type="submit" class="btn-gold" style="width:100%;justify-content:center;margin-top:4px"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+  </form>
+</div>
+<script>
+(function(){
+  var modal=document.getElementById("enquiry-modal"),overlay=document.getElementById("modal-overlay");
+  function openM(){modal.style.opacity="1";modal.style.visibility="visible";modal.style.transform="translate(-50%,-50%) scale(1)";overlay.style.opacity="1";overlay.style.visibility="visible";document.body.style.overflow="hidden";}
+  function closeM(){modal.style.opacity="0";modal.style.visibility="hidden";modal.style.transform="translate(-50%,-50%) scale(.95)";overlay.style.opacity="0";overlay.style.visibility="hidden";document.body.style.overflow="";}
+  document.querySelectorAll(".open-enquiry").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();openM();});});
+  document.getElementById("modal-close").addEventListener("click",closeM);
+  overlay.addEventListener("click",closeM);
+  document.getElementById("modal-enquiry-form").addEventListener("submit",function(e){
+    e.preventDefault();
+    var dest=document.getElementById("modal-dest").value,name=document.getElementById("modal-name").value,phone=document.getElementById("modal-phone").value,travel=document.getElementById("modal-travel").value,pax=document.getElementById("modal-pax").value;
+    var msg=encodeURIComponent("Hello RJ Taxi!\\n\\nI need a quote:\\nRoute: "+dest+"\\nName: "+name+"\\nPhone: "+phone+"\\nDate: "+travel+"\\nPassengers: "+pax+"\\n\\nPlease share best rates.");
+    window.open("https://wa.me/919317082083?text="+msg,"_blank");closeM();
+  });
+})();
+</script>
+  <!-- HERO -->
+  <section class="dest-hero" aria-label="Punjab taxi service">
   <div class="dest-hero-bg" style="background-image:url(\'https://images.unsplash.com/photo-1514222134-b57cbb8ce073?w=1920&q=85\')"></div>
   <div class="dest-hero-overlay"></div>
   <div class="dest-hero-content">
